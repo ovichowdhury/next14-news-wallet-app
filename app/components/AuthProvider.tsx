@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Spinner from './Spinner'
 
-enum VerificationStatus {
+export enum VerificationStatus {
   'P',
   'A',
   'R',
