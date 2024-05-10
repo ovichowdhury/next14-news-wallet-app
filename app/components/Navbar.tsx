@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="px-4 sm:px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <h2 className="flex gap-2 items-center font-bold text-3xl text-gray-900 dark:text-white">
-          <SiApplenews />
+          <SiApplenews className="text-orange-600" />
           <Link href="https://news-wallet-app.vercel.com" className=" hidden sm:block">
             News Wallet
           </Link>
