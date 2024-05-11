@@ -1,13 +1,16 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import globalReducer from '@/lib/redux/features/global/global.slice'
+import newsReducer from '@/lib/redux/features/news/news.slice'
 
 const rootReducer = combineReducers({
   global: globalReducer,
+  news: newsReducer,
 })
 
 export const makeStore = () => {
   return configureStore({
     reducer: rootReducer,
+    devTools: process.env.NODE_ENV !== 'production',
   })
 }
 

@@ -21,7 +21,7 @@ export default function MetaMaskLogin() {
         const accounts = await window.ethereum.request<string[]>({ method: 'eth_requestAccounts' })
         if (accounts && accounts[0]) {
           sessionStorage.setItem('meta-account', accounts[0])
-          router.push('/user/dashboard')
+          router.push('/user/news')
         }
       } catch (ex) {
         alert('Access Denied')

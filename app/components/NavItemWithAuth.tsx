@@ -20,7 +20,7 @@ export default function NavItemWithAuth() {
   if (verificationStatus === VerificationStatus.R) return <></>
   return (
     <div className="flex justify-center items-center gap-4">
-      <Link href="/user/dashboard" className="flex justify-center items-center gap-1 hover:text-orange-600">
+      <Link href="/user/news" className="flex justify-center items-center gap-1 hover:text-orange-600">
         <IoHomeOutline />
         Home
       </Link>
