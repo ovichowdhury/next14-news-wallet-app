@@ -29,11 +29,13 @@ export default function News({ data }: NewsProps) {
       {/* Text content */}
       <div className="flex flex-col gap-1 p-2 flex-1 h-1/2">
         <div>
-          <p className="text-gray-700 font-semibold">{data.author}</p>
+          <p className="text-gray-700 font-semibold w-full whitespace-nowrap overflow-hidden text-ellipsis">
+            {data.author}
+          </p>
         </div>
         <div className="flex gap-2">
           <p className="text-gray-700 text-sm font-semibold">{data.source.name}</p>
-          <p className="text-gray-700 text-sm font-semibold px-2 border-l border-l-slate-400">
+          <p className="text-gray-700 text-sm font-semibold px-2 border-l border-l-slate-400 w-full whitespace-nowrap overflow-hidden text-ellipsis">
             Date: <span className=" font-light">{new Date(data.publishedAt).toDateString()}</span>
           </p>
         </div>
