@@ -2,12 +2,14 @@ import { INews } from '@/types/interfaces/news.interface'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export interface NewsState {
+  currentPage: number
   totalResults: number
   articles: INews[]
 }
 
 const initState: NewsState = {
-  totalResults: 0,
+  currentPage: 1,
+  totalResults: 1,
   articles: [],
 }
 
@@ -18,12 +20,15 @@ export const newsSlice = createSlice({
     setTotalResults: (state, action: PayloadAction<number>) => {
       state.totalResults = action.payload
     },
+    setPage: (state, action: PayloadAction<number>) => {
+      state.currentPage = action.payload
+    },
     setArticles: (state, action: PayloadAction<INews[]>) => {
       state.articles = action.payload
     },
   },
 })
 
-export const { setTotalResults, setArticles } = newsSlice.actions
+export const { setTotalResults, setArticles, setPage } = newsSlice.actions
 
 export default newsSlice.reducer

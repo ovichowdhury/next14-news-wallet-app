@@ -9,7 +9,8 @@ async function getNewsData<T>(page: number): Promise<T> {
   })
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    console.error(res)
+    throw new Error(`Failed to fetch data - ${res.statusText}`)
   }
 
   const jsonRes: T = await res.json()
@@ -21,11 +22,11 @@ export default async function Dashboard({
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
-  const page = Array.isArray(searchParams['page']) ? 1 : parseInt(searchParams['page'] ?? '')
+  const page = Array.isArray(searchParams['page']) ? 1 : parseInt(searchParams['page'] ?? '1')
   const news = await getNewsData<INewsApiRes>(page ?? 1)
   return (
     <div className="p-6">
-      <NewsList data={news} />
+      <NewsList data={news} page={page} />
     </div>
   )
 }
