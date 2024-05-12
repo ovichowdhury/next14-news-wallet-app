@@ -4,12 +4,18 @@ import Image from 'next/image'
 import { INews } from '@/types/interfaces/news.interface'
 import { TbListDetails } from 'react-icons/tb'
 import { MdDeleteOutline, MdEditNote } from 'react-icons/md'
+import { useAppDispatch } from '@/lib/redux/hooks'
+import { deleteArticle } from '@/lib/redux/features/news/news.slice'
 
 interface NewsProps {
   data: INews
 }
 
 export default function News({ data }: NewsProps) {
+  const dispatch = useAppDispatch()
+  const onDeleteClick = () => {
+    dispatch(deleteArticle(data.title))
+  }
   return (
     <div className="w-full md:w-80 h-64 flex flex-col gap-1 border border-gray-200 rounded-md overflow-hidden bg-gradient-to-r from-gray-50  to-white shadow-lg hover:shadow-xl hover:bg-gradient-to-l transition ease-in-out duration-300 delay-150 hover:cursor-pointer">
       <div className="flex-1 h-1/2 overflow-hidden">
@@ -49,7 +55,10 @@ export default function News({ data }: NewsProps) {
 
           <MdEditNote className="text-2xl text-gray-700 hover:cursor-pointer hover:text-orange-600" />
 
-          <MdDeleteOutline className="text-2xl text-gray-700 hover:cursor-pointer hover:text-orange-600" />
+          <MdDeleteOutline
+            className="text-2xl text-gray-700 hover:cursor-pointer hover:text-orange-600"
+            onClick={onDeleteClick}
+          />
         </div>
       </div>
     </div>

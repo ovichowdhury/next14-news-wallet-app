@@ -27,11 +27,15 @@ export const newsSlice = createSlice({
       state.articles = action.payload
     },
     addArticle: (state, action: PayloadAction<INews>) => {
-      state.articles = [...state.articles, action.payload]
+      state.articles = [action.payload, ...state.articles]
+    },
+    deleteArticle: (state, action: PayloadAction<string>) => {
+      const index = state.articles.findIndex((a) => a.title === action.payload)
+      state.articles.splice(index, 1)
     },
   },
 })
 
-export const { setTotalResults, setArticles, setPage, addArticle } = newsSlice.actions
+export const { setTotalResults, setArticles, setPage, addArticle, deleteArticle } = newsSlice.actions
 
 export default newsSlice.reducer
