@@ -1,6 +1,7 @@
 import React from 'react'
 import AuthProvider from '@/app/components/AuthProvider'
 import Drawer from '@/app/components/Drawer'
+import NewsAdd from './NewsAdd'
 
 export default function DashboardLayout({
   children,
@@ -9,7 +10,7 @@ export default function DashboardLayout({
 }>) {
   return (
     <AuthProvider>
-      <Drawer>{children}</Drawer>
+      <Drawer content={<NewsAdd />}>{children}</Drawer>
     </AuthProvider>
   )
 }

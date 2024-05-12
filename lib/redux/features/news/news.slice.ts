@@ -26,9 +26,12 @@ export const newsSlice = createSlice({
     setArticles: (state, action: PayloadAction<INews[]>) => {
       state.articles = action.payload
     },
+    addArticle: (state, action: PayloadAction<INews>) => {
+      state.articles = [...state.articles, action.payload]
+    },
   },
 })
 
-export const { setTotalResults, setArticles, setPage } = newsSlice.actions
+export const { setTotalResults, setArticles, setPage, addArticle } = newsSlice.actions
 
 export default newsSlice.reducer

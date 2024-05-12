@@ -23,6 +23,7 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react-hooks/exhaustive-deps': 'off',
+    '@typescript-eslint/no-empty-interface': 'off',
   },
   settings: {
     react: {

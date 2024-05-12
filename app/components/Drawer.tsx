@@ -4,9 +4,10 @@ import React, { useState } from 'react'
 
 type DrawerProps = {
   children: React.ReactNode
+  content?: JSX.Element
 }
 
-export default function Drawer({ children }: DrawerProps) {
+export default function Drawer({ children, content }: DrawerProps) {
   const [open, setOpen] = useState(false)
 
   const toggleOpen = () => {
@@ -33,6 +34,7 @@ export default function Drawer({ children }: DrawerProps) {
         {/** Header */}
 
         {/** Content */}
+        {open && <div className="flex flex-col justify-center items-center">{content}</div>}
       </div>
       {/** Right Panel */}
       <div className="flex-1 relative overflow-x-hidden">{children}</div>
